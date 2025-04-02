@@ -1,5 +1,8 @@
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+
 export const searchRecipes = async (searchTerm, page) => {
-  const baseUrl = new URL("http://localhost:5000/api/recipes/search");
+  const baseUrl = new URL(`${BASE_URL}/api/recipes/search`);
   baseUrl.searchParams.append("searchTerm", searchTerm);
   baseUrl.searchParams.append("page", String(page));
 
@@ -12,7 +15,7 @@ export const searchRecipes = async (searchTerm, page) => {
 };
 
 export const getRecipeSummary = async (recipeId) => {
-  const url = new URL(`http://localhost:5000/api/recipes/${recipeId}/summary`);
+  const url = new URL(`${BASE_URL}/api/recipes/${recipeId}/summary`);
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -23,7 +26,7 @@ export const getRecipeSummary = async (recipeId) => {
 };
 
 export const getFavouriteRecipes = async () => {
-  const url = new URL("http://localhost:5000/api/recipes/favourite");
+  const url = new URL(`${BASE_URL}/api/recipes/favourite`);
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -34,7 +37,7 @@ export const getFavouriteRecipes = async () => {
 };
 
 export const addFavouriteRecipe = async (recipe) => {
-  const url = new URL("http://localhost:5000/api/recipes/favourite");
+  const url = new URL(`${BASE_URL}/api/recipes/favourite`);
   const body = {
     recipeId: recipe.id,
   };
@@ -53,7 +56,7 @@ export const addFavouriteRecipe = async (recipe) => {
 };
 
 export const removeFavouriteRecipe = async (recipe) => {
-  const url = new URL("http://localhost:5000/api/recipes/favourite");
+  const url = new URL(`${BASE_URL}/api/recipes/favourite`);
   const body = {
     recipeId: recipe.id,
   };
