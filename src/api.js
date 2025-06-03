@@ -1,7 +1,7 @@
 // This file is for frontend API calls to your own backend, NOT directly to Spoonacular or using Node.js modules!
 
 // Set your backend API base URL (use environment variable in production, fallback to localhost for dev)
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+const BASE_URL = process.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 /**
  * Search for recipes using your backend API.
